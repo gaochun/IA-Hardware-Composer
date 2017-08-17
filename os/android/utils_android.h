@@ -52,18 +52,26 @@ extern "C" {
 // Conversion from HAL to fourcc-based DRM formats
 static uint32_t GetDrmFormatFromHALFormat(int format) {
   switch (format) {
-    case HAL_PIXEL_FORMAT_RGBA_8888:
-      return DRM_FORMAT_BGRA8888;
-    case HAL_PIXEL_FORMAT_RGBX_8888:
-      return DRM_FORMAT_BGRX8888;
-    case HAL_PIXEL_FORMAT_RGB_888:
-      return DRM_FORMAT_BGR888;
-    case HAL_PIXEL_FORMAT_RGB_565:
-      return DRM_FORMAT_BGR565;
     case HAL_PIXEL_FORMAT_BGRA_8888:
       return DRM_FORMAT_ARGB8888;
+    case HAL_PIXEL_FORMAT_RGB_565:
+      return DRM_FORMAT_RGB565;
+    case HAL_PIXEL_FORMAT_RGB_888:
+      return DRM_FORMAT_RGB888;
+    case HAL_PIXEL_FORMAT_RGBA_8888:
+      return DRM_FORMAT_ABGR8888;
+    case HAL_PIXEL_FORMAT_RGBX_8888:
+      return DRM_FORMAT_XBGR8888;
+    case HAL_PIXEL_FORMAT_NV12:
+      return DRM_FORMAT_NV12;
+    case HAL_PIXEL_FORMAT_YCbCr_420_888:
+      return DRM_FORMAT_FLEX_YCbCr_420_888;
     case HAL_PIXEL_FORMAT_YV12:
-      return DRM_FORMAT_YVU420;
+      return DRM_FORMAT_YVU420_ANDROID;
+    case HAL_PIXEL_FORMAT_BLOB:
+      return DRM_FORMAT_R8;
+    case HAL_PIXEL_FORMAT_YCbCr_422_I:
+      return DRM_FORMAT_YUYV;
     default:
       break;
   }
